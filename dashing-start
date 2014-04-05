@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DASHING_DIR=/dashing
+GEM_HOME=/usr/local/lib/ruby/gems/2.1.0
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+OPT="start -d -P /var/run/dashing.pid --tag dashing -D"
+
+if [ $1 = "start" ];then
+  cd ${DASHING_DIR} && dashing ${OPT}
+elif [ $1 = "stop" ];then
+  killall ruby
+else
+  "$1 is not available."
+fi
